@@ -10,7 +10,14 @@ class Database(object):
         cls.DATABASE = client['test']
 
     @classmethod
-    def save(cls, collection, item):
+    def insert(cls, collection, item):
         cls.DATABASE[collection].insert_one(item)
 
-    
+    @classmethod
+    def find(cls, collection, query):
+        return cls.DATABASE[collection].find(query)
+
+    @classmethod
+    def find_one(cls, collection, query):
+        return cls.DATABASE[collection].find_one(query)
+
